@@ -54,7 +54,7 @@ const (
 	BrightWhite   = "\033[97m"
 )
 
-var colors = []string{Blue, Yellow, BrightBlue, BrightYellow, BrightRed, Red}
+var colors = []string{Blue, Magenta, Green, BrightYellow, BrightRed, Red}
 
 // Log is log.
 type Log struct {
