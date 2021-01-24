@@ -1,8 +1,10 @@
+// Package elasticsearch is a wrapper of the original "github.com/elastic/go-elasticsearch".
 package elasticsearch
 
 import (
 	"context"
 	"encoding/json"
+	"errors"
 	"strings"
 
 	"github.com/elastic/go-elasticsearch/v7"
@@ -31,7 +33,7 @@ func NewWithConfig(cfg elasticsearch.Config) (*Client, error) {
 	}
 
 	// Connection check.
-	if _, err = es.Info(); err != nil {
+	if err = isError(es.Info()); err != nil {
 		return nil, err
 	}
 	return &Client{es: es}, nil
@@ -57,6 +59,19 @@ func (c *Client) Send(key string, data interface{}) error {
 		Body:    strings.NewReader(string(d)),
 		Refresh: "true",
 	}
-	_, err = req.Do(context.Background(), c.es)
-	return err
+	return isError(req.Do(context.Background(), c.es))
+}
+
+func isError(res *esapi.Response, err error) error {
+	if err != nil {
+		return err
+	}
+
+	defer res.Body.Close()
+
+	if res.IsError() {
+		return errors.New(res.String())
+	}
+
+	return nil
 }
