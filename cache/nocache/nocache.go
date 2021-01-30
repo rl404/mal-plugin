@@ -1,7 +1,14 @@
 // Package nocache is a mock of caching.
 package nocache
 
-import "errors"
+import (
+	"errors"
+
+	"github.com/rl404/mal-plugin/cache"
+)
+
+// Nocache client implements Cacher interface.
+var _ cache.Cacher = &Client{}
 
 // Client is nocache client.
 type Client struct{}

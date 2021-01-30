@@ -9,7 +9,11 @@ import (
 	"time"
 
 	"github.com/bradfitz/gomemcache/memcache"
+	"github.com/rl404/mal-plugin/cache"
 )
+
+// Memcache client implements Cacher interface.
+var _ cache.Cacher = &Client{}
 
 // Client is memcache client.
 type Client struct {

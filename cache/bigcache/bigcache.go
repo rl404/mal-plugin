@@ -9,7 +9,11 @@ import (
 	"time"
 
 	"github.com/allegro/bigcache"
+	"github.com/rl404/mal-plugin/cache"
 )
+
+// Bigcache client implements Cacher interface.
+var _ cache.Cacher = &Client{}
 
 // Client is bigcache client.
 type Client struct {

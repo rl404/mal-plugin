@@ -5,7 +5,7 @@ package mallogger
 import (
 	"fmt"
 	"log"
-	"os"
+	"runtime"
 )
 
 const (
@@ -138,5 +138,5 @@ func (l Log) Error(format string, args ...interface{}) {
 // Fatal to log trace.
 func (l Log) Fatal(format string, args ...interface{}) {
 	l.Print(TypeFatal, format, args...)
-	os.Exit(1)
+	runtime.Goexit()
 }

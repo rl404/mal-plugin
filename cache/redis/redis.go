@@ -10,7 +10,11 @@ import (
 	"time"
 
 	"github.com/go-redis/redis/v8"
+	"github.com/rl404/mal-plugin/cache"
 )
+
+// Redis client implements Cacher interface.
+var _ cache.Cacher = &Client{}
 
 // Client is redis client.
 type Client struct {
