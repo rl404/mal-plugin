@@ -5,6 +5,7 @@
 Additional libraries used by:
 - [go-malscraper](https://github.com/rl404/go-malscraper)
 - [mal-api](https://github.com/rl404/mal-api)
+- [mal-db](https://github.com/rl404/mal-db)
 
 Contain interfaces for:
 - Cache
