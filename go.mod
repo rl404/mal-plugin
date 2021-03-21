@@ -14,6 +14,7 @@ require (
 	github.com/nsqio/go-nsq v1.0.8
 	github.com/nxadm/tail v1.4.6 // indirect
 	github.com/streadway/amqp v1.0.0
+	go.opentelemetry.io/otel v0.19.0 // indirect
 	golang.org/x/net v0.0.0-20210119194325-5f4716e94777 // indirect
 	golang.org/x/sys v0.0.0-20210124154548-22da62e12c0c // indirect
 	golang.org/x/text v0.3.5 // indirect
